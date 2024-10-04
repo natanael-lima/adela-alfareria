@@ -1,33 +1,34 @@
-# Barbería Landing Page
+# Cerámica Landing Page
+
 ## Descripción
 
-Una landing page diseñada para mostrar los trabajos realizados por la barbería y permitir a los usuarios reservar citas de manera sencilla a través de WhatsApp. La página ofrece una interfaz visual atractiva con imágenes de cortes, estilos, y servicios disponibles.
+Una landing page diseñada para mostrar una variedad de productos de cerámica y permitir a los usuarios realizar compras o reservas de manera sencilla. La página ofrece una interfaz visual atractiva con imágenes de productos y detalles de cada uno.
 
 ## Funcionalidades
 
-- **Visualización de trabajos realizados**: Muestra una galería de imágenes de cortes y estilos realizados por la barbería.
-- **Reserva a través de WhatsApp**: Los usuarios pueden reservar citas directamente a través de la API de WhatsApp con un solo clic.
-- **Información de contacto**: Sección con la dirección, teléfono, y horarios de la barbería para facilitar el contacto.
+- **Visualización de productos**: Muestra una galería de imágenes de productos de cerámica disponibles para la compra.
+- **Compra directa**: Los usuarios pueden seleccionar productos y realizar un pedido a través de un enlace de WhatsApp.
+- **Información de contacto**: Sección con la dirección, teléfono, y horarios de atención de la tienda de cerámica para facilitar el contacto.
 
 ## Tecnologías
 
 - **Frontend**: Next.js + Tailwind CSS + TypeScript
-- **API de Mensajería**: Integración con la API de WhatsApp para la reserva de citas.
+- **API de Mensajería**: Integración con la API de WhatsApp para la compra de productos.
 
 ## Clonar el Repositorio
 
-Para clonar este repositorio y comenzar a trabajar con el sistema de reservas de hoteles, sigue estos pasos:
+Para clonar este repositorio y comenzar a trabajar con la tienda de cerámica, sigue estos pasos:
 
 1. Clona el repositorio usando el siguiente comando:
 
    ```bash
-   git clone https://github.com/natanael-lima/barbershop-landing-page.git
+   git clone https://github.com/natanael-lima/adela-ceramica.git
    ```
 
 2. Navega al directorio del proyecto:
 
    ```bash
-   cd barbershop-landing-page
+   cd adela-ceramica
    ```
 
 ## Vista Previa
