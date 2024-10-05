@@ -36,16 +36,16 @@ export default function Header() {
           <div className="flex items-center text-2xl font-bold">
             <a href="/" className="flex items-center">
               <img src="/logo.png" alt="Logo" className="h-10" /> {/* Coloca tu logo aquí */}
-              <span className="ml-2 text-stone-700">AG</span> {/* Nombre AG al lado del logo */}
+              <span className="ml-2 text-stone-600">AG</span> {/* Nombre AG al lado del logo */}
             </a>
           </div>
 
           {/* Opciones de Navegación alineadas al logo */}
           <nav className="hidden md:flex space-x-14">
-            <a href="#home" className="text-1xl font-medium text-stone-500 hover:text-stone-700">Home</a>
-            <a href="#about" className="text-1xl font-medium text-stone-500 hover:text-stone-700">Products</a>
-            <a href="#services" className="text-1xl font-medium text-stone-500 hover:text-stone-700">About Us</a>
-            <a href="#services" className="text-1xl font-medium text-stone-500 hover:text-stone-700">Contac Us</a>
+            <a href="#home" className="text-1xl font-medium text-stone-600 hover:text-stone-700">Home</a>
+            <a href="#about" className="text-1xl font-medium text-stone-600 hover:text-stone-700">Products</a>
+            <a href="#services" className="text-1xl font-medium text-stone-600 hover:text-stone-700">About Us</a>
+            <a href="#services" className="text-1xl font-medium text-stone-600 hover:text-stone-700">Contac Us</a>
           </nav>
         </div>
 
@@ -53,7 +53,7 @@ export default function Header() {
         <div className="hidden md:block">
           <a
             href="#contact"
-            className="bg-stone-500 hover:bg-stone-600 text-white font-md py-2 px-4 rounded-full transition duration-300"
+            className="bg-stone-500/80 hover:bg-stone-600/80 text-white font-md py-2 px-4 rounded-full transition duration-300"
           >
             Message Direct
           </a>

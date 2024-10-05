@@ -8,7 +8,7 @@ import Products from "@/components/Products";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-stone-100">
+    <div className="min-h-screen bg-stone-50/85">
       <Header />
       <Hero />
       <main className="container mx-auto px-4 py-16">

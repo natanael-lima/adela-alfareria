@@ -14,7 +14,7 @@ export default function Hero() {
 
     {/* Texto grande en el medio */}
     <div className="lg:w-3/4 mb-8 lg:mb-0 z-20 mt-40 lg:mt-2">
-      <h1 className="text-7xl sm:text-huge font-extrabold text-stone-900 leading-none tracking-wide text-center">
+      <h1 className="text-7xl sm:text-huge font-extrabold text-stone-700 leading-none tracking-wide text-center">
         CERAMIC
       </h1>
     </div>
@@ -22,14 +22,14 @@ export default function Hero() {
     {/* Contenedor para texto y botón */}
     <div className="absolute bottom-5 left-5 z-20">
       {/* Texto pequeño en la esquina inferior izquierda dividido en 3 líneas */}
-      <p className="text-xl md:text-lg sm:text-base font-light text-gray-500 antialiased mb-4">
+      <p className="text-xl md:text-lg sm:text-base font-light text-stone-700/50 antialiased mb-4">
         Lorem ipsum dolor sit amet, consectetur<br />
         adipisicing elit. Aliquid unde perspiciatis<br />
         sed, facilis voluptate est ullam laborum.
       </p>
 
       {/* Botón con efecto SVG debajo del texto */}
-      <button className="mt-3 px-4 py-3 rounded-full font-normal tracking-wide bg-stone-800 hover:bg-stone-700 text-white outline-none focus:outline-none transition duration-200 ease-in-out flex items-center justify-center">
+      <button className="mt-3 px-4 py-3 rounded-full font-normal tracking-wide bg-stone-700 hover:bg-stone-600 text-white outline-none focus:outline-none transition duration-200 ease-in-out flex items-center justify-center">
         <span>Explore Products</span>
         <svg
           className="w-6 h-6 ml-3 animate-bounce"
