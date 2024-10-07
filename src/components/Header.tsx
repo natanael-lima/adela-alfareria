@@ -46,7 +46,11 @@ export default function Header() {
 
 
   return (
-    <header className={`w-full text-stone-700 py-4 shadow-sm z-30 ${isScrolled ? 'bg-neutral-950' : 'bg-transparent'} ${isMenuOpen ? 'bg-neutral-950 h-full w-80' : 'bg-transparent'}  fixed top-0 left-0 transition-all duration-100`}>
+    <header className={`w-full text-stone-700 py-4 shadow-sm z-30 fixed top-0 left-0 transition-all duration-100
+              ${isScrolled ? 'bg-neutral-950' : ''} 
+              ${isMenuOpen ? 'w-72 h-full bg-neutral-950' : ''} 
+              ${isMenuOpen && !isScrolled ? 'bg-neutral-950' : ''}
+            `}>
       <div className="container px-4 flex justify-between items-center max-w-7xl mx-auto">
         {/* Contenedor de Logo y Navegación (todo alineado a la izquierda) */}
         <div className="flex items-center space-x-8">
@@ -54,7 +58,7 @@ export default function Header() {
           <div className="flex items-center text-2xl font-bold">
             <a href="/" className="flex items-center">
               <img src="/logo.png" alt="Logo" className="h-10" /> {/* Coloca tu logo aquí */}
-              <span className="ml-2 text-stone-200">AG</span> {/* Nombre AG al lado del logo */}
+              <span className="ml-2 text-stone-200">AA</span> {/* Nombre AG al lado del logo */}
             </a>
           </div>
 
