@@ -28,7 +28,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`w-full text-stone-700 py-4 shadow-sm z-30 ${isScrolled ? 'bg-stone-100' : 'bg-transparent'} fixed top-0 left-0 transition-all duration-200`}>
+    <header className={`w-full text-stone-700 py-4 shadow-sm z-30 ${isScrolled ? 'bg-stone-950/90' : 'bg-transparent'} fixed top-0 left-0 transition-all duration-200`}>
       <div className="container px-4 flex justify-between items-center max-w-7xl mx-auto">
         {/* Contenedor de Logo y Navegación (todo alineado a la izquierda) */}
         <div className="flex items-center space-x-8">
@@ -36,26 +36,23 @@ export default function Header() {
           <div className="flex items-center text-2xl font-bold">
             <a href="/" className="flex items-center">
               <img src="/logo.png" alt="Logo" className="h-10" /> {/* Coloca tu logo aquí */}
-              <span className="ml-2 text-stone-600">AG</span> {/* Nombre AG al lado del logo */}
+              <span className="ml-2 text-stone-200">AG</span> {/* Nombre AG al lado del logo */}
             </a>
           </div>
 
           {/* Opciones de Navegación alineadas al logo */}
           <nav className="hidden md:flex space-x-14">
-            <a href="#home" className="text-1xl font-medium text-stone-600 hover:text-stone-700">Home</a>
-            <a href="#about" className="text-1xl font-medium text-stone-600 hover:text-stone-700">Products</a>
-            <a href="#services" className="text-1xl font-medium text-stone-600 hover:text-stone-700">About Us</a>
-            <a href="#services" className="text-1xl font-medium text-stone-600 hover:text-stone-700">Contac Us</a>
+            <a href="#home" className="text-1xl font-medium text-stone-200 hover:text-stone-300">Home</a>
+            <a href="#about" className="text-1xl font-medium text-stone-200 hover:text-stone-300">Products</a>
+            <a href="#services" className="text-1xl font-medium text-stone-200 hover:text-stone-300">About Us</a>
+            <a href="#services" className="text-1xl font-medium text-stone-200 hover:text-stone-300">Contac Us</a>
           </nav>
         </div>
 
         {/* Botón de Contacto alineado a la derecha */}
         <div className="hidden md:block">
-          <a
-            href="#contact"
-            className="bg-stone-500/80 hover:bg-stone-600/80 text-white font-md py-2 px-4 rounded-full transition duration-300"
-          >
-            Message Direct
+          <a href="#contact" className="font-semibold flex items-center justify-center order-1 w-full px-2 py-2 mt-3 text-sm tracking-wide capitalize transition-colors duration-300 transform border rounded-full sm:mx-2 dark:border-stone-100/50 text-stone-100 dark:hover:text-stone-600 sm:mt-0 sm:w-auto focus:outline-none focus:ring dark:hover:bg-stone-200 focus:ring-stone-200 focus:ring-opacity-40">
+                Message Direct
           </a>
         </div>
 
@@ -63,7 +60,7 @@ export default function Header() {
         <div className="md:hidden flex items-center">
           <button
             onClick={toggleMenu}
-            className="text-stone-700 focus:outline-none"
+            className="text-stone-200 focus:outline-none"
           >
             {isMenuOpen ? <IoClose size={28} /> : <HiBars3BottomRight size={28} />} {/* Iconos de hamburguesa y close */}
           </button>
@@ -73,16 +70,16 @@ export default function Header() {
       {/* Menú para Móviles */}
       {isMenuOpen && (
         <div className="md:hidden">
-          <nav className="flex flex-col items-center space-y-4 py-4 bg-stone-100 text-stone-600">
-            <a href="#home" className="text-lg hover:text-stone-400" onClick={toggleMenu}>Home</a>
-            <a href="#about" className="text-lg hover:text-stone-400" onClick={toggleMenu}>About</a>
-            <a href="#services" className="text-lg hover:text-stone-400" onClick={toggleMenu}>Services</a>
+          <nav className="flex flex-col items-center space-y-4 py-4 bg-stone-800 text-stone-200">
+            <a href="#home" className="text-lg hover:text-stone-300" onClick={toggleMenu}>Home</a>
+            <a href="#about" className="text-lg hover:text-stone-300" onClick={toggleMenu}>Products</a>
+            <a href="#about" className="text-lg hover:text-stone-300" onClick={toggleMenu}>About us</a>
+            <a href="#services" className="text-lg hover:text-stone-300" onClick={toggleMenu}>Contact us</a>
             <a
               href="#contact"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
-              onClick={toggleMenu}
+              className="font-semibold px-4 py-2 mt-3 text-sm tracking-wide capitalize transition-colors duration-300 transform border rounded-full sm:mx-2 dark:border-stone-100/50 text-stone-100 dark:hover:text-stone-600 sm:mt-0 sm:w-auto focus:outline-none focus:ring dark:hover:bg-stone-200 focus:ring-stone-200 focus:ring-opacity-40"
             >
-              Contact
+              Message Direct
             </a>
           </nav>
         </div>

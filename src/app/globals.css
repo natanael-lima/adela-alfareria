@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 :root {
-    background-color: rgb(255, 247, 236);
-    background-image: url("https://img.freepik.com/foto-gratis/copie-textura-pared-espacio-fondos_23-2148742519.jpg?w=1380&t=st=1728086065~exp=1728086665~hmac=b5cfa740d4644d2dda6bd8ca718a0c74d3433bc1df61e3d609c31e9475224606");
-    background-size: cover; /* Hace que la imagen de fondo cubra todo el contenedor */
+    /*background-image: url("https://img.freepik.com/foto-gratis/copie-textura-pared-espacio-fondos_23-2148742519.jpg?w=1380&t=st=1728086065~exp=1728086665~hmac=b5cfa740d4644d2dda6bd8ca718a0c74d3433bc1df61e3d609c31e9475224606");
+    background-size: cover;*/
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen de fondo */
-    height: 74vh; /* Asegúrate de que el fondo ocupe toda la altura de la ventana */
+    /*height: 74vh;  Asegúrate de que el fondo ocupe toda la altura de la ventana */
 }
