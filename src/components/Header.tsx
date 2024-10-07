@@ -46,7 +46,7 @@ export default function Header() {
 
 
   return (
-    <header className={`w-full text-stone-700 py-4 shadow-sm z-30 ${isScrolled ? 'bg-stone-950' : 'bg-transparent'} ${isMenuOpen ? 'bg-stone-950 h-full w-3/4' : 'bg-transparent'}  fixed top-0 left-0 transition-all duration-100`}>
+    <header className={`w-full text-stone-700 py-4 shadow-sm z-30 ${isScrolled ? 'bg-neutral-950' : 'bg-transparent'} ${isMenuOpen ? 'bg-neutral-950 h-full w-80' : 'bg-transparent'}  fixed top-0 left-0 transition-all duration-100`}>
       <div className="container px-4 flex justify-between items-center max-w-7xl mx-auto">
         {/* Contenedor de Logo y Navegación (todo alineado a la izquierda) */}
         <div className="flex items-center space-x-8">
