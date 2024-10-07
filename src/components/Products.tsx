@@ -34,88 +34,85 @@ export default function Products() {
   };
 
   return (
-    <section className='p-4'>
-      <h1 className='text-4xl font-bold mb-4'>Products</h1>
-      <div className='grid grid-cols-2 lg:grid-cols-4 gap-2'>
-      {currentProducts.map(product => (
-  <div key={product.id} className='relative overflow-hidden p-2 group'>
-    {/* Contenedor de la imagen con hover para oscurecer toda la imagen */}
-    <div className='relative'>
-      <img
-        src={product.imageUrl}
-        alt={product.name}
-        className='w-40 h-40 lg:w-72 lg:h-72 object-cover rounded-lg shadow-lg transition-opacity duration-300 group-hover:opacity-70'
-      />
+    <section className=''>
+          <h1 className='text-4xl font-bold mb-4'>Products</h1>
+          <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 w-full'>
+          {currentProducts.map(product => (
+          <div key={product.id} className='relative overflow-hidden p-1 group '>
+            {/* Contenedor de la imagen con hover para oscurecer toda la imagen */}
+            <div className='relative'>
+              <img
+                src={product.imageUrl}
+                alt={product.name}
+                className='w-full h-40 lg:w-full lg:h-72 object-cover rounded-lg transition-opacity duration-300 group-hover:opacity-70'
+              />
 
-      {/* Overlay negro que cubre la imagen completa al hacer hover */}
-      <div className='absolute inset-0 bg-stone-900 bg-opacity-50 opacity-0 rounded-lg group-hover:opacity-100 transition-opacity duration-300'></div>
+              {/* Overlay negro que cubre la imagen completa al hacer hover */}
+              <div className='absolute inset-0 bg-stone-900 bg-opacity-50 opacity-0 rounded-lg group-hover:opacity-100 transition-opacity duration-300'></div>
 
-      {/* Contenedor para los botones que aparecerán en hover */}
-      <div className='absolute inset-0 flex justify-between items-end p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-        <button className='bg-blue-500 text-white py-1 px-4 mb-2 rounded hover:bg-blue-600'>
-          View More
-        </button>
-        <button className='bg-blue-500 text-white py-1 px-4 mb-2 rounded hover:bg-blue-600'>
-          Book
-        </button>
-      </div>
-    </div>
-
-    {/* Información del producto */}
-    <div className='mt-2 px-2 lg:px-2'>
-      <div className='flex justify-between'>
-        <h2 className='text-lg font-semibold'>{product.name}</h2>
-        <span className='text-lg font-bold'>$ {product.price}</span>
-      </div>
-    </div>
-  </div>
-))}
-
-
-      </div>
-
-      {/* Paginación */}
-      <div className="grid min-h-[140px] w-full place-items-start overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
-        <nav>
-          <ul className="flex">
-            <li>
-              <button
-                onClick={prevPage}
-                disabled={currentPage === 1}
-                className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-stone-200/35 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
-                aria-label="Previous"
-              >
-                <GrFormPrevious />
-              </button>
-            </li>
-
-            {/* Renderizado dinámico de los números de página */}
-            {Array.from({ length: Math.ceil(products.length / productsPerPage) }, (_, index) => (
-              <li key={index}>
-                <button
-                  onClick={() => setCurrentPage(index + 1)}
-                  className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full p-0 text-sm text-stone-600/70 shadow-md transition duration-150 ease-in-out ${
-                    currentPage === index + 1 ? 'bg-stone-300' : 'border border-blue-gray-100 bg-transparent text-gray-700 hover:bg-stone-200/35'
-                  }`}
-                >
-                  {index + 1}
+              {/* Contenedor para los botones que aparecerán en hover */}
+              <div className='absolute inset-0 flex justify-center items-end p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+                <button className='bg-stone-200 text-stone-600 py-1 px-4 mb-2 rounded-full hover:bg-stone-300'>
+                  View More
                 </button>
-              </li>
-            ))}
+              </div>
+            </div>
 
-            <li>
-              <button
-                onClick={nextPage}
-                disabled={currentPage === Math.ceil(products.length / productsPerPage)}
-                className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-stone-200/35 ${currentPage === Math.ceil(products.length / productsPerPage) ? 'opacity-50 cursor-not-allowed' : ''}`}
-                aria-label="Next"
-              >
-                <GrFormNext />
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
+            {/* Información del producto */}
+            <div className='mt-2 px-2 lg:px-2'>
+              <div className='flex flex-col sm:flex-row sm:justify-between items-center'>
+                <h2 className='text-sm font-semibold'>{product.name}</h2>
+                <span className='text-sm font-extrabold'>$ {product.price}</span>
+              </div>
+                <button className='mt-2 bg-stone-900 w-full text-white py-1 px-4 mb-2 rounded-full hover:bg-stone-700'>
+                  Buy Now
+                </button>
+            </div>
+          </div>
+        ))}
+          </div>
+          {/* Paginación */}
+          <div className="grid min-h-[140px] w-full place-items-start overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
+            <nav>
+              <ul className="flex">
+                <li>
+                  <button
+                    onClick={prevPage}
+                    disabled={currentPage === 1}
+                    className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-stone-200/35 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    aria-label="Previous"
+                  >
+                    <GrFormPrevious />
+                  </button>
+                </li>
+
+                {/* Renderizado dinámico de los números de página */}
+                {Array.from({ length: Math.ceil(products.length / productsPerPage) }, (_, index) => (
+                  <li key={index}>
+                    <button
+                      onClick={() => setCurrentPage(index + 1)}
+                      className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full p-0 text-sm text-stone-600/70 shadow-md transition duration-150 ease-in-out ${
+                        currentPage === index + 1 ? 'bg-stone-300' : 'border border-blue-gray-100 bg-transparent text-gray-700 hover:bg-stone-200/35'
+                      }`}
+                    >
+                      {index + 1}
+                    </button>
+                  </li>
+                ))}
+
+                <li>
+                  <button
+                    onClick={nextPage}
+                    disabled={currentPage === Math.ceil(products.length / productsPerPage)}
+                    className={`mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-stone-200/35 ${currentPage === Math.ceil(products.length / productsPerPage) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    aria-label="Next"
+                  >
+                    <GrFormNext />
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
     </section>
   );
 }

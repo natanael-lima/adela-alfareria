@@ -2,7 +2,7 @@ import React from 'react'
 import { IoArrowDown } from "react-icons/io5";
 export default function Hero() {
   return (
-    <section className="relative flex items-center min-h-screen bg-[url('/bg2.jpg')] bg-cover bg-center rounded-br-4xl">
+    <section className="relative flex items-center min-h-1.5 bg-[url('/bg1.jpg')] bg-cover bg-center rounded-br-4xl">
               {/* Overlay que cubre todo */}
               <div className="absolute inset-0 bg-stone-900 opacity-70 rounded-br-4xl"></div>
                   <div className="hero flex items-center min-h-screen px-4 lg:px-8 relative max-w-7xl mx-auto">
@@ -14,19 +14,12 @@ export default function Hero() {
                       alt="Hero Image"
                       className="absolute lg:right-10 top-5 h-3/5 lg:h-full z-10 object-cover mx-auto sm:top-10"
                     />*/}
-
-                  
-                    {/* Logo, visible solo en pantallas pequeñas */}
-                    <div className='block sm:hidden flex flex-col items-center'>
-                        <img
-                            src="/logo.png"
-                            alt="Logo"
-                            className="w-72 h-full max-w-xs "
-                          />
-                    </div>  
                     <div className="lg:w-3/4 mb-10 lg:mb-0 z-20 lg:mt-2">
-                        <h1 className="text-7xl sm:text-huge font-extrabold text-stone-200 leading-none tracking-wide text-center">
-                          CERAMIC
+                        <h1 className="text-8xl sm:text-huge font-extrabold text-stone-300 leading-none tracking-wide text-center">
+                          ADELA
+                        </h1>
+                        <h1 className="text-5xl sm:text-xxxl font-extrabold text-stone-400 leading-none tracking-wide text-center">
+                          ALFARERÍA
                         </h1>
                     </div>
          

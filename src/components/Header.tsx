@@ -8,10 +8,12 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Alternar el menú de navegación
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Manejar el scroll para cambiar el estado de la barra de navegación
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsScrolled(true);
@@ -20,6 +22,7 @@ export default function Header() {
     }
   };
 
+  // Efecto para agregar/quitar el evento del scroll en el componente
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -27,8 +30,23 @@ export default function Header() {
     };
   }, []);
 
+  // Efecto para bloquear/desbloquear el scroll del fondo cuando el menú está abierto
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('overflow-hidden'); // Bloquea el fondo
+    } else {
+      document.body.classList.remove('overflow-hidden'); // Desbloquea el fondo
+    }
+
+    // Cleanup para remover la clase cuando el componente se desmonte
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isMenuOpen]); // Escucha los cambios en `isMenuOpen`
+
+
   return (
-    <header className={`w-full text-stone-700 py-4 shadow-sm z-30 ${isScrolled ? 'bg-stone-950/90' : 'bg-transparent'} fixed top-0 left-0 transition-all duration-200`}>
+    <header className={`w-full text-stone-700 py-4 shadow-sm z-30 ${isScrolled ? 'bg-stone-950' : 'bg-transparent'} ${isMenuOpen ? 'bg-stone-950 h-full w-3/4' : 'bg-transparent'}  fixed top-0 left-0 transition-all duration-100`}>
       <div className="container px-4 flex justify-between items-center max-w-7xl mx-auto">
         {/* Contenedor de Logo y Navegación (todo alineado a la izquierda) */}
         <div className="flex items-center space-x-8">
@@ -51,7 +69,7 @@ export default function Header() {
 
         {/* Botón de Contacto alineado a la derecha */}
         <div className="hidden md:block">
-          <a href="#contact" className="font-semibold flex items-center justify-center order-1 w-full px-2 py-2 mt-3 text-sm tracking-wide capitalize transition-colors duration-300 transform border rounded-full sm:mx-2 dark:border-stone-100/50 text-stone-100 dark:hover:text-stone-600 sm:mt-0 sm:w-auto focus:outline-none focus:ring dark:hover:bg-stone-200 focus:ring-stone-200 focus:ring-opacity-40">
+          <a href="#contact" className="font-semibold flex items-center justify-center order-1 w-full px-4 py-2 mt-3 text-sm tracking-wide capitalize transition-colors duration-300 transform border rounded-full sm:mx-2 dark:border-stone-100/50 text-stone-100 dark:hover:text-stone-600 sm:mt-0 sm:w-auto focus:outline-none focus:ring dark:hover:bg-stone-200 focus:ring-stone-200 focus:ring-opacity-40">
                 Message Direct
           </a>
         </div>
@@ -66,11 +84,10 @@ export default function Header() {
           </button>
         </div>
       </div>
-
       {/* Menú para Móviles */}
-      {isMenuOpen && (
-        <div className="md:hidden">
-          <nav className="flex flex-col items-center space-y-4 py-4 bg-stone-800 text-stone-200">
+      {isMenuOpen  && (
+        <div className="md:hidden z-30">
+          <nav className="flex flex-col items-center space-y-4 py-4 bg-stone-950 text-stone-200 transition-all duration-100">
             <a href="#home" className="text-lg hover:text-stone-300" onClick={toggleMenu}>Home</a>
             <a href="#about" className="text-lg hover:text-stone-300" onClick={toggleMenu}>Products</a>
             <a href="#about" className="text-lg hover:text-stone-300" onClick={toggleMenu}>About us</a>

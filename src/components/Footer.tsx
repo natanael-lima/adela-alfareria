@@ -3,8 +3,8 @@ import React from 'react'
 export default function Footer() {
   return (
     <footer className="">
-        <div className="container px-6 py-8 mx-auto">
-            <hr className="my-10 border-gray-200 dark:border-gray-700" />
+        <div className="container px-6 py-2 mx-auto">
+            <hr className="my-2 border-gray-300 dark:border-gray-300" />
 
             <div className="flex flex-col items-center sm:flex-row sm:justify-between">
                 <p className="text-sm text-gray-500">© Copyright 2021. All Rights Reserved.</p>

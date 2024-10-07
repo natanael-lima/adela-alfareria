@@ -18,7 +18,7 @@ const config: Config = {
         huge: ["16rem", { lineHeight: "1.1" }],  // Texto enorme "huge"
       },
       borderRadius: {
-        '4xl': '12rem', // Definir el borde redondeado
+        '4xl': '10rem', // Definir el borde redondeado
       },
     },
   },
