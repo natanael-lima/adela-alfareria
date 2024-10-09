@@ -1,10 +1,35 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect, useState } from 'react'
 import { IoArrowDown } from "react-icons/io5";
 export default function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+   // Lista de URLs de imágenes de fondo
+   const backgroundImages = [
+    "/bg1.jpg",
+    "/bg2.jpg",
+    "/bg4.jpg",
+  ];
+
+  // Cambiar la imagen de fondo cada 3 segundos
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex: number) => (prevIndex + 1) % backgroundImages.length);
+    }, 8000); // Cambiar cada 3 segundos
+
+    return () => clearInterval(intervalId); // Limpiar intervalo al desmontar el componente
+  }, [backgroundImages.length]);
+  // Función para cambiar la imagen manualmente
+  const handleDotClick = (index: number) => {
+    setCurrentImageIndex(index); // Cambiar el índice de la imagen actual
+  };
   return (
-    <section id='home' className="relative flex items-center min-h-1.5 bg-[url('/bg4.jpg')] bg-cover bg-center rounded-br-4xl">
-              {/* Overlay que cubre todo */}
-              <div className="absolute inset-0 bg-stone-900 opacity-60 rounded-br-4xl"></div>
+    <section  id="home"
+              className="relative flex items-center min-h-1.5 bg-cover bg-center rounded-br-4xl transition-all duration-1000 ease-in-out"
+              style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }} // Imagen dinámica
+              >
+                  {/* Overlay que cubre todo */}
+                  <div className="absolute inset-0 bg-stone-900 opacity-60 rounded-br-4xl"></div>
                   <div className="hero flex items-center min-h-screen px-4 lg:px-8 relative max-w-7xl mx-auto">
                     {/* Contenido de la hero section */}
                     <div className="justify-center items-center ">
@@ -39,6 +64,18 @@ export default function Hero() {
                       </button>
                     </div>
                   </div>
+                   {/* Indicadores de carrusel (puntos) */}
+                    <div className="absolute bottom-5 w-full flex justify-center z-30">
+                      {backgroundImages.map((_, index) => (
+                        <span
+                          key={index}
+                          onClick={() => handleDotClick(index)}
+                          className={`mx-2 h-3 w-3 rounded-full cursor-pointer transition-all duration-300 ${
+                            currentImageIndex === index ? 'bg-stone-200' : 'bg-stone-500'
+                          }`}
+                        />
+                      ))}
+                      </div>
                 </div>
     </section>
   
