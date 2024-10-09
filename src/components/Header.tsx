@@ -101,12 +101,12 @@ export default function Header() {
       {isMenuOpen  && (
         <div className="md:hidden z-30">
           <nav className="flex flex-col items-center space-y-4 py-4 bg-stone-950 text-stone-200 transition-all duration-100">
-            <a href="#home" className="text-lg hover:text-stone-300" onClick={toggleMenu}>Inicio</a>
-            <a href="#about" className="text-lg hover:text-stone-300" onClick={toggleMenu}>Productos</a>
-            <a href="#about" className="text-lg hover:text-stone-300" onClick={toggleMenu}>Sobre Nosotros</a>
-            <a href="#services" className="text-lg hover:text-stone-300" onClick={toggleMenu}>Contáctanos</a>
+            <a onClick={(e) => { e.preventDefault();handleSmoothScroll(e, 'home');toggleMenu();}} href="#home" className="text-lg hover:text-stone-300">Inicio</a>
+            <a onClick={(e) => { e.preventDefault();handleSmoothScroll(e, 'product');toggleMenu();}}  href="#about" className="text-lg hover:text-stone-300" >Productos</a>
+            <a onClick={(e) => { e.preventDefault();handleSmoothScroll(e, 'about');toggleMenu();}}  href="#about" className="text-lg hover:text-stone-300" >Sobre Nosotros</a>
+            <a onClick={(e) => { e.preventDefault();handleSmoothScroll(e, 'contact');toggleMenu();}}  href="#services" className="text-lg hover:text-stone-300" >Contáctanos</a>
             <a
-              href="#contact"
+              href="https://api.whatsapp.com/send?phone=5493884342648"
               className="font-semibold px-4 py-2 mt-3 text-sm tracking-wide capitalize transition-colors duration-300 transform border rounded-full sm:mx-2 dark:border-stone-100/50 text-stone-100 dark:hover:text-stone-600 sm:mt-0 sm:w-auto focus:outline-none focus:ring dark:hover:bg-stone-200 focus:ring-stone-200 focus:ring-opacity-40"
             >
               Mensaje Directo
