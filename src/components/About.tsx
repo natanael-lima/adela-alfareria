@@ -2,16 +2,15 @@ import React from 'react'
 
 export default function About() {
   return (
-    <div className=''>
+    <section id='about' className=''>
       <div className="flex items-center justify-center py-2">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 w-full max-w-7xl">
         
         {/* Columna de texto */}
         <div className="p-8 rounded-lg">
-        <h2 className="text-4xl font-bold text-stone-700 mb-4">About Us</h2>
-        <h3 className="text-3xl font-bold text-stone-600 mb-4">Hand Crafted Pottery since 1985</h3>
+          <h2 className="text-4xl font-bold text-stone-700 mb-4">Sobre Nosotros</h2>
           <p className="text-stone-500 text-lg leading-relaxed">
-            Welcome to our ceramic store! We are passionate about providing high-quality, handcrafted ceramics that bring warmth and elegance to your home. Our journey started with a deep appreciation for artisanal craftsmanship, and today we proudly offer a curated selection of unique pieces. Every item in our store tells a story, blending traditional techniques with modern design. Whether you're looking for a beautiful vase, a dinnerware set, or a decorative sculpture, we have something special for every style and occasion.
+            ¡Bienvenidos a nuestra tienda de cerámica! Con más de 30 años de experiencia, nos apasiona ofrecer cerámicas artesanales de alta calidad que aporten calidez y elegancia a tu hogar. Nuestro viaje comenzó en 1988 con una profunda admiración por la artesanía tradicional, y hoy en día nos enorgullece presentar una selección exclusiva de piezas únicas. Cada artículo en nuestra tienda cuenta una historia, combinando técnicas tradicionales. Desde jarrones y juegos de vajilla, hasta esculturas decorativas, tenemos algo especial para cada estilo y ocasión. Elaboramos todos nuestros productos con barro y arcilla, manteniendo viva la tradición de la cerámica artesanal.
           </p>
         </div>
         
@@ -26,6 +25,6 @@ export default function About() {
 
       </div>
     </div>
-    </div>
+    </section>
   )
 }

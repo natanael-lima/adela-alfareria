@@ -3,7 +3,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Info from "@/components/InfoPayment";
+import Info from "@/components/Info";
 import Products from "@/components/Products";
 
 

@@ -14,11 +14,21 @@ import { GrFormNext,GrFormPrevious  } from "react-icons/gr";
 export default function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 8;
-
   // Calcular los productos que se mostrarán en la página actual
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null); // Estado para la imagen seleccionada
+
+  // Función para abrir el modal con la imagen seleccionada
+  const handleImageClick = (imgUrl: string) => {
+    setSelectedImage(imgUrl); // Establece la imagen seleccionada
+  };
+
+  // Función para cerrar el modal
+  const closeModal = () => {
+    setSelectedImage(null); // Cierra el modal
+  };
 
   // Función para cambiar de página
   const nextPage = () => {
@@ -34,42 +44,63 @@ export default function Products() {
   };
 
   return (
-    <section className=''>
-          <h1 className='text-4xl font-bold mb-4'>Products</h1>
+    <section id='product' className=''>
+          <h1 className='text-4xl font-bold mb-4'>Productos</h1>
           <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 w-full'>
-          {currentProducts.map(product => (
-          <div key={product.id} className='relative overflow-hidden p-1 group '>
-            {/* Contenedor de la imagen con hover para oscurecer toda la imagen */}
-            <div className='relative'>
-              <img
-                src={product.imageUrl}
-                alt={product.name}
-                className='w-full h-40 lg:w-full lg:h-72 object-cover rounded-lg transition-opacity duration-300 group-hover:opacity-70'
-              />
+            {/* Mapeo de productos */}
+              {currentProducts.map(product => (
+                <div key={product.id} className='relative overflow-hidden p-1 group'>
+                  {/* Contenedor de la imagen */}
+                  <div className='relative' onClick={() => handleImageClick(product.imageUrl)}>
+                      <img
+                        src={product.imageUrl}
+                        alt={product.name}
+                        className='w-full h-40 lg:w-full lg:h-72 object-cover rounded-lg transition-opacity duration-300 group-hover:opacity-70'
+                      />
+                      {/* Overlay oscuro al hacer hover */}
+                      <div onClick={() => handleImageClick(product.imageUrl)} className='absolute inset-0 bg-stone-950 bg-opacity-40 opacity-0 rounded-lg group-hover:opacity-100 transition-opacity duration-300'></div>
+                      {/* Botón de View More */}
+                      <div className='absolute inset-0 flex justify-center items-end p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+                        <button onClick={() => handleImageClick(product.imageUrl)} className='bg-stone-200 text-stone-600 py-1 px-4 mb-2 rounded-full hover:bg-stone-300'>
+                          Ver Mas
+                        </button>
+                      </div>
+                  </div>
 
-              {/* Overlay negro que cubre la imagen completa al hacer hover */}
-              <div className='absolute inset-0 bg-stone-900 bg-opacity-50 opacity-0 rounded-lg group-hover:opacity-100 transition-opacity duration-300'></div>
+                  {/* Información del producto */}
+                  <div className='mt-2 px-2 lg:px-2'>
+                    <div className='flex flex-col sm:flex-row sm:justify-between items-center'>
+                      <h2 className='text-sm font-semibold'>{product.name}</h2>
+                      <span className='text-sm font-extrabold'>$ {product.price}</span>
+                    </div>
+                    <button className='mt-2 bg-stone-600 w-full text-white py-2 px-4 mb-2 rounded-full hover:bg-stone-700'>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+              ))}
 
-              {/* Contenedor para los botones que aparecerán en hover */}
-              <div className='absolute inset-0 flex justify-center items-end p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-                <button className='bg-stone-200 text-stone-600 py-1 px-4 mb-2 rounded-full hover:bg-stone-300'>
-                  View More
-                </button>
-              </div>
-            </div>
-
-            {/* Información del producto */}
-            <div className='mt-2 px-2 lg:px-2'>
-              <div className='flex flex-col sm:flex-row sm:justify-between items-center'>
-                <h2 className='text-sm font-semibold'>{product.name}</h2>
-                <span className='text-sm font-extrabold'>$ {product.price}</span>
-              </div>
-                <button className='mt-2 bg-stone-900 w-full text-white py-1 px-4 mb-2 rounded-full hover:bg-stone-700'>
-                  Buy Now
-                </button>
-            </div>
-          </div>
-        ))}
+              {/* Modal para la imagen */}
+              {selectedImage && (
+                <div
+                  className='fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50'
+                  onClick={closeModal} // Cierra el modal cuando se hace clic fuera de la imagen
+                >
+                  <div className='relative'>
+                    <img
+                      src={selectedImage}
+                      alt='Selected'
+                      className='max-w-full max-h-screen object-contain'
+                    />
+                    <button
+                      className='absolute top-1 right-4 text-black text-4xl'
+                      onClick={closeModal} // Botón para cerrar el modal
+                    >
+                      &times;
+                    </button>
+                  </div>
+                </div>
+              )}
           </div>
           {/* Paginación */}
           <div className="grid min-h-[140px] w-full place-items-start overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
@@ -119,63 +150,75 @@ export default function Products() {
 const products = [
     {
       id: 1,
-      name: "Vaso Cerámico Azul",
-      price: "1,500",
-      imageUrl: "https://137degrees.com/wp-content/uploads/2021/05/how-to-photograph-your-ceramics-137-degrees-1-1.jpg"
+      name: "Azucarera",
+      price: "5.400",
+      imageUrl: "https://i.postimg.cc/43VnKfQG/1.png"
     },
     {
       id: 2,
-      name: "Plato Cerámico Rústico",
-      price: "1,200",
-      imageUrl: "https://images.squarespace-cdn.com/content/v1/5b1c967b620b8539d6648491/1599449431088-CF0AUD45ME4HCBSH59RW/Wandering%2BCollection.%2BSettle%2BCeramics.jpg"
+      name: "Jarron Mujer",
+      price: "6.400",
+      imageUrl: "https://i.postimg.cc/dVvJW28b/5.png"
     },
     {
       id: 3,
-      name: "Taza de Cerámica Blanca",
-      price: "800",
-      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqCxsyEh3seWMyEAGJVzQzp0Guxz1aYEfOlmaToy4nHO-TAvAL_Y1ypEhKu1jTgTBPNw4&usqp=CAU"
+      name: "Cactus Porta Anillos",
+      price: "1.500",
+      imageUrl: "https://i.postimg.cc/CLbFHPfC/6.png"
     },
     {
       id: 4,
-      name: "Jarrón Cerámico Verde",
-      price: "2,300",
-      imageUrl: "https://www.azuremagazine.com/wp-content/uploads/2023/08/Azure-Ceramics-Roundup-Hero.jpg"
+      name: "Olla Grande",
+      price: "14.000",
+      imageUrl: "https://i.postimg.cc/WzgP8ztp/10.png"
     },
     {
       id: 5,
-      name: "Cuenco de Cerámica Amarillo",
-      price: "1,000",
-      imageUrl: "https://static1.squarespace.com/static/60ae11c53b5cfd0165fd628a/t/64d0c0566c94d354c582b60b/1691402332362/St-Leonards-Ceramics.jpg?format=1500w"
+      name: "Cazuela de Barro",
+      price: "3.999",
+      imageUrl: "https://i.postimg.cc/66vwtjzs/11.png"
     },
     {
       id: 6,
-      name: "Plato hondo Cerámico",
-      price: "1,400",
-      imageUrl: "https://www.decotazas.com/en/wp-content/uploads/2018/01/Custom-promotional-ceramics.jpg"
+      name: "Cuenco Bowl Ceramica",
+      price: "3.500",
+      imageUrl: "https://i.postimg.cc/ncfxz4wX/12.png"
     },
     {
       id: 7,
-      name: "Taza de Cerámica Decorativa",
-      price: "950",
-      imageUrl: "https://images.squarespace-cdn.com/content/v1/5730cd4e1d07c088bf72484a/1486710563380-HLD26S4LGAQFRI3OIA1Z/File_000+%283%29.jpeg?format=1500w"
+      name: "Olla Mediana",
+      price: "11.600",
+      imageUrl: "https://i.postimg.cc/4drgpVfF/8.png"
     },
     {
       id: 8,
-      name: "Cerámica para Plantas",
-      price: "1,600",
-      imageUrl: "https://www.re-thinkingthefuture.com/materials-construction/a6220-9-must-have-products-made-of-ceramics/attachment/image-8_-andretta-pottery_i-pinimg-com/"
+      name: "Porta velas",
+      price: "2.000",
+      imageUrl: "https://i.postimg.cc/s2HyDbtz/7.png"
     },
     {
       id: 9,
-      name: "Set de Platos Cerámicos",
-      price: "3,200",
-      imageUrl: "https://kwceramics.com.au/cdn/shop/collections/KWCeramics_LR_MixedSets_SQ-11_2048x.jpg?v=1688874015"
+      name: "Jarra",
+      price: "5,500",
+      imageUrl: "https://i.postimg.cc/Bng4RjpX/4.png"
     },
     {
       id: 10,
-      name: "Tazón Cerámico Grande",
-      price: "1,250",
-      imageUrl: "https://cms-assets.tutsplus.com/cdn-cgi/image/width=360/uploads/users/573/posts/22924/image/photograph-ceramics-final.JPG"
+      name: "Ollita multiuso 2cm",
+      price: "200",
+      imageUrl: "https://i.postimg.cc/FRfvfD4L/9.png"
+    },
+    {
+      id: 11,
+      name: "Ollita multiuso 8cm",
+      price: "3.000",
+      imageUrl: "https://i.postimg.cc/63KqnkMv/2.png"
+    },
+    {
+      id: 12,
+      name: "Ollita multiuso 4cm",
+      price: "900",
+      imageUrl: "https://i.postimg.cc/Zq54mJsj/3.png"
     }
   ];
   
