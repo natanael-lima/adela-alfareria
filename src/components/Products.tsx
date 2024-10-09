@@ -204,20 +204,20 @@ const products = [
     },
     {
       id: 10,
-      name: "Ollita multiuso 2cm",
-      price: "200",
+      name: "Ollita multiuso 1.5cm",
+      price: "100",
       imageUrl: "https://i.postimg.cc/FRfvfD4L/9.png"
     },
     {
       id: 11,
-      name: "Ollita multiuso 8cm",
-      price: "3.000",
+      name: "Ollita multiuso 6cm",
+      price: "2.500",
       imageUrl: "https://i.postimg.cc/63KqnkMv/2.png"
     },
     {
       id: 12,
-      name: "Ollita multiuso 4cm",
-      price: "900",
+      name: "Ollita multiuso 3cm",
+      price: "800",
       imageUrl: "https://i.postimg.cc/Zq54mJsj/3.png"
     }
   ];
