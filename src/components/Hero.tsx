@@ -39,7 +39,7 @@ export default function Hero() {
                       alt="Hero Image"
                       className="absolute lg:right-10 top-5 h-3/5 lg:h-full z-10 object-cover mx-auto sm:top-10"
                     />*/}
-                    <div className="lg:w-3/4 mb-10 lg:mb-0 z-20 lg:mt-2">
+                    <div className="lg:w-3/4 mb-20 lg:mb-0 z-20 lg:mt-2">
                         <h1 className="text-8xl sm:text-huge font-extrabold text-stone-200 leading-none tracking-wide text-center">
                           ADELA
                         </h1>
@@ -48,7 +48,7 @@ export default function Hero() {
                         </h1>
                     </div>
                     {/* Contenedor para texto y botón */}
-                    <div className="absolute bottom-5 left-5 z-20">
+                    <div className="absolute bottom-20 left-5 z-20">
                       {/* Texto pequeño en la esquina inferior izquierda dividido en 3 líneas */}
                       <p className="text-xl md:text-lg sm:text-base font-light text-stone-300/80 antialiased mb-4">
                         Adela Alfarería transforma el barro en piezas únicas.<br />
