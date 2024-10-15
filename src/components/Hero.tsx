@@ -15,7 +15,7 @@ export default function Hero() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentImageIndex((prevIndex: number) => (prevIndex + 1) % backgroundImages.length);
-    }, 8000); // Cambiar cada 3 segundos
+    }, 10000); // Cambiar cada 10 segundos
 
     return () => clearInterval(intervalId); // Limpiar intervalo al desmontar el componente
   }, [backgroundImages.length]);
@@ -23,6 +23,15 @@ export default function Hero() {
   const handleDotClick = (index: number) => {
     setCurrentImageIndex(index); // Cambiar el índice de la imagen actual
   };
+   // Maneja el desplazamiento suave al hacer clic en los enlaces
+   const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    event.preventDefault();  // Prevenir el comportamiento por defecto del enlace
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });  // Desplazamiento suave
+    }
+  };
+
   return (
     <section  id="home"
               className="relative flex items-center min-h-1.5 bg-cover bg-center rounded-br-4xl transition-all duration-1000 ease-in-out"
@@ -58,10 +67,10 @@ export default function Hero() {
 
 
                       {/* Botón con efecto SVG debajo del texto */}
-                      <button className="mt-3 px-4 py-3 rounded-full font-normal tracking-wide bg-stone-200 hover:bg-stone-300 outline-none focus:outline-none transition duration-200 ease-in-out flex items-center justify-center">
+                      <a onClick={(e) => handleSmoothScroll(e, 'product')} className="w-56 mt-3 px-4 py-3 rounded-full font-normal tracking-wide bg-stone-200 hover:bg-stone-300 outline-none focus:outline-none transition duration-200 ease-in-out flex items-center justify-center">
                         <span className='text-stone-600 font-semibold'>Explorar Productos</span>
                         <IoArrowDown className='w-6 h-6 ml-3 animate-bounce text-stone-600'/>
-                      </button>
+                      </a>
                     </div>
                   </div>
                    {/* Indicadores de carrusel (puntos) */}
